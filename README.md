@@ -1,6 +1,9 @@
 # Who-Is-More-Likely-To-Buy
 Uplift Modeling to identify the pursuable group of customers from all the users in order to send them encouragement (in terms of coupons or other offers) to buy the product more without spending resources to convert those users who are not willing or interested to buy the product even after encouragement.
 
+## Uplift Modeling
+
+
 ## Dataset Description
 
 This is a synthetic dataset created for research purpose. 
@@ -69,6 +72,21 @@ Percentage of conversions in the two groups (Control and Treatment)
 <tr><td>Treatment</td><td>0.3712</td></tr>
 </table>
 
+**Observations:**
+
+- The data points are randomized and equally distributed among control and treatment groups.
+- The ATE (Average Treatment Effect) is positive and is approximately 10%. 
+
+ Let's obeserve the proportion Z-test results among the two groups.
+ 
+<table>
+<tr><th>Statistic</th><th>Values</th></tr>
+<tr><td>Z-stat</td><td>-11.17</td></tr>
+<tr><td>P-value</td><td>5.27e-29</td></tr>
+</table>
+ 
+ 
+ 
 
 
 
