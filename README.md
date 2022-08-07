@@ -72,12 +72,7 @@ Percentage of conversions in the two groups (Control and Treatment)
 <tr><td>Treatment</td><td>0.3712</td></tr>
 </table>
 
-**Observations:**
-
-- The data points are randomized and equally distributed among control and treatment groups.
-- The ATE (Average Treatment Effect) is positive and is approximately 10%. 
-
- Let's obeserve the proportion Z-test results among the two groups.
+Let's obeserve the proportion Z-test results among the two groups.
  
 <table>
 <tr><th>Statistic</th><th>Values</th></tr>
@@ -85,6 +80,13 @@ Percentage of conversions in the two groups (Control and Treatment)
 <tr><td>P-value</td><td>5.27e-29</td></tr>
 </table>
  
+**Observations:**
+
+- The data points are randomized and equally distributed among control and treatment groups.
+- The ATE (Average Treatment Effect) is positive and is approximately 10%. 
+- From the proportion Z-test between the two groups, we observed that the difference in the conversion between the two groups is significant as the p-value is less than 0.05.
+
+These observations clearly states that we can move ahead with the uplift modeling. We will be creating a machine learning model to classify users based on how likely they will be purchase the product. Once we build the model, we will use the model to estimate the difference between the conversion of indivisual to see who are likely to get converted under treatment conditions. 
  
  
 
