@@ -1,7 +1,7 @@
 # Who-Is-More-Likely-To-Buy
 Uplift Modeling to identify the pursuable group of customers from all the users in order to send them encouragement (in terms of coupons or other offers) to buy the product more without spending resources to convert those users who are not willing or interested to buy the product even after encouragement.
 
-**Dataset**
+## Dataset Description
 
 This is a synthetic dataset created for research purpose. 
 <br><br>
@@ -64,7 +64,7 @@ Data points in each of the two groups (Control and Treatment)
 Percentage of conversions in the two groups (Control and Treatment)
 
 <table>
-<tr><th>Groups</th><th>Data points</th></tr>
+<tr><th>Groups</th><th>Conversion Rate</th></tr>
 <tr><td>Control</td><td>0.2670</td></tr>
 <tr><td>Treatment</td><td>0.3712</td></tr>
 </table>
