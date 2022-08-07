@@ -4,12 +4,12 @@ Uplift Modeling to identify the pursuable group of customers from all the users 
 **Dataset**
 
 This is a synthetic dataset created for research purpose. 
-<br>
+<br><br>
 Synthetic Data Set for Uplift Modeling [Data set]. Zenodo. https://doi.org/10.5281/zenodo.3653141
 
 <table>
 
-<th><td>S No.</td><td>Feature Name</td><td>Feature Description</td></th>
+<tr><th>S No.</th><th>Feature Name</th><th>Feature Description</th></tr>
 <tr><td>1</td><td>trail ID</td><td>treatment_group_key</td></tr>
 <tr><td>2</td><td>conversion</td><td>treatment_group_key</td></tr>
 <tr><td>3</td><td>x1_informative</td><td>informative feature</td></tr>
