@@ -51,7 +51,7 @@ Synthetic Data Set for Uplift Modeling [Data set]. Zenodo. https://doi.org/10.52
 
 </table>
 
-**Exploratory Data Analysis**
+## Exploratory Data Analysis
 
 Data points in each of the two groups (Control and Treatment)
 
