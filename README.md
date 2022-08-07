@@ -10,8 +10,9 @@ Synthetic Data Set for Uplift Modeling [Data set]. Zenodo. https://doi.org/10.52
 <table>
 
 <tr><th>S No.</th><th>Feature Name</th><th>Feature Description</th></tr>
-<tr><td>1</td><td>trail ID</td><td>treatment_group_key</td></tr>
-<tr><td>2</td><td>conversion</td><td>treatment_group_key</td></tr>
+<tr><td>0</td><td>trail ID</td><td>trail ID</td></tr>
+<tr><td>1</td><td>treatment_group_key</td><td>Experiment group label</td></tr>
+<tr><td>2</td><td>conversion</td><td>Outcome variable</td></tr>
 <tr><td>3</td><td>x1_informative</td><td>informative feature</td></tr>
 <tr><td>4</td><td>x2_informative</td><td>informative feature</td></tr>
 <tr><td>5</td><td>x3_informative</td><td>informative feature</td></tr>
@@ -49,5 +50,46 @@ Synthetic Data Set for Uplift Modeling [Data set]. Zenodo. https://doi.org/10.52
 <tr><td>35</td><td>treatment1_true_effect</td><td>treatment 1 true effect</td></tr>
 
 </table>
+
+**Exploratory Data Analysis**
+
+Data points in each of the two groups (Control and Treatment)
+
+<table>
+<tr><th>Groups</th><th>Data points</th></tr>
+<tr><td>Control</td><td>5000</td></tr>
+<tr><td>Treatment</td><td>5000</td></tr>
+</table>
+
+Percentage of conversions in the two groups (Control and Treatment)
+
+<table>
+<tr><th>Groups</th><th>Data points</th></tr>
+<tr><td>Control</td><td>0.2670</td></tr>
+<tr><td>Treatment</td><td>0.3712</td></tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
