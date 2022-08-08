@@ -88,7 +88,9 @@ Let's obeserve the proportion Z-test results among the two groups.
 
 These observations clearly states that we can move ahead with the uplift modeling. We will be creating a machine learning model to classify users based on how likely they will be purchase the product. Once we build the model, we will use the model to estimate the difference between the conversion of indivisual to see who are likely to get converted under treatment conditions. 
  
- 
+## Modeling
+
+
 
 
 

@@ -5,11 +5,15 @@ Created on Sun Aug  7 02:17:11 2022
 @author: Nikhil
 """
 
-""" importing the libraries and files """
+""" Importing the libraries and files """
 
 # importing the libraries
 import pandas as pd
 import statsmodels
+from sklearn.model_selection import train_test_split
+from xgboost import XGBClassifier
+from sklearn.model_selection import KFold
+from sklearn.metrics import precision_recall_fscore_support
 
 # importing the dataset
 data = pd.read_csv('data/uplift_synthetic_data_100trials.csv', nrows=10000)
@@ -43,14 +47,98 @@ treatment = data.query('treatment_group_key == 1 and conversion == 1')['conversi
 statsmodels.stats.proportion.proportions_ztest([control, treatment], [5000, 5000])
 
 
+""" Modeling """
 
+# seleccting features that are required to build the model 
+data = data[['treatment_group_key', 
+             'conversion',
+             'x1_informative', 
+             'x2_informative',
+             'x3_informative',
+             'x4_informative', 
+             'x5_informative', 
+             'x6_informative',
+             'x7_informative', 
+             'x8_informative', 
+             'x9_informative', 
+             'x10_informative',
+             'x11_irrelevant', 
+             'x12_irrelevant', 
+             'x13_irrelevant', 
+             'x14_irrelevant',
+             'x15_irrelevant',
+             'x16_irrelevant', 
+             'x17_irrelevant', 
+             'x18_irrelevant',
+             'x19_irrelevant',
+             'x20_irrelevant',
+             'x21_irrelevant', 
+             'x22_irrelevant',
+             'x23_irrelevant', 
+             'x24_irrelevant', 
+             'x25_irrelevant', 
+             'x26_irrelevant',
+             'x27_irrelevant', 
+             'x28_irrelevant', 
+             'x29_irrelevant', 
+             'x30_irrelevant',
+             'x31_uplift_increase', 
+             'x32_uplift_increase', 
+             'x33_uplift_increase',
+             'x34_uplift_increase', 
+             'x35_uplift_increase', 
+             'x36_uplift_increase'
+             ]]
 
+# getting the predictors and results
+X = data[['treatment_group_key', 
+          'x1_informative', 
+          'x2_informative',
+          'x3_informative',
+          'x4_informative', 
+          'x5_informative', 
+          'x6_informative',
+          'x7_informative', 
+          'x8_informative', 
+          'x9_informative', 
+          'x10_informative',
+          'x11_irrelevant', 
+          'x12_irrelevant', 
+          'x13_irrelevant', 
+          'x14_irrelevant',
+          'x15_irrelevant',
+          'x16_irrelevant', 
+          'x17_irrelevant', 
+          'x18_irrelevant',
+          'x19_irrelevant',
+          'x20_irrelevant',
+          'x21_irrelevant', 
+          'x22_irrelevant',
+          'x23_irrelevant', 
+          'x24_irrelevant', 
+          'x25_irrelevant', 
+          'x26_irrelevant',
+          'x27_irrelevant', 
+          'x28_irrelevant', 
+          'x29_irrelevant', 
+          'x30_irrelevant',
+          'x31_uplift_increase', 
+          'x32_uplift_increase', 
+          'x33_uplift_increase',
+          'x34_uplift_increase', 
+          'x35_uplift_increase', 
+          'x36_uplift_increase']]
 
+y = data['conversion']
 
+# splitting the dataset into training and test set
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42 )
 
+# building the model
+model = XGBClassifier()
 
-
-
+# fitting the model using K-Fold cross validation
+score  = cross_val_score(model, X_train, y_train, cv=5)
 
 
 
