@@ -12,8 +12,12 @@ import pandas as pd
 import statsmodels
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
-from sklearn.model_selection import KFold
+from sklearn.model_selection import cross_val_score
 from sklearn.metrics import precision_recall_fscore_support
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.dark_palette("#69d", reverse=True, as_cmap=True)
+sns.color_palette("Set2")
 
 # importing the dataset
 data = pd.read_csv('data/uplift_synthetic_data_100trials.csv', nrows=10000)
@@ -30,11 +34,15 @@ data.columns
 # removing irrelevant columns
 del data['Unnamed: 0']
 
-# data points in different gorups (control and treatment)
+# data points in different groups (control and treatment)
 data.groupby('treatment_group_key').aggregate({'treatment_group_key':['count']})
 
 # lets check the average customer conversion in both the groups
 data.groupby('treatment_group_key').aggregate({'conversion':['mean']})
+
+# plotting the distribution between two 
+temp_distribution = data.groupby('treatment_group_key').aggregate({'conversion':'mean'}).reset_index()
+sns.barplot(x = "treatment_group_key", y="conversion" ,data=temp_distribution, orient='h', palette='Blues')
 
 # difference in treatment and control groups 
 data.groupby('treatment_group_key').aggregate({'conversion':'mean'})['conversion'][1] - data.groupby('treatment_group_key').aggregate({'conversion':'mean'})['conversion'][0]
@@ -138,8 +146,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 model = XGBClassifier()
 
 # fitting the model using K-Fold cross validation
-score  = cross_val_score(model, X_train, y_train, cv=5)
+score  = cross_val_score(model, X_train, y_train, cv=5, scoring='accuracy')
 
+print(score)
 
 
 

@@ -13,7 +13,6 @@ Synthetic Data Set for Uplift Modeling [Data set]. Zenodo. https://doi.org/10.52
 <table>
 
 <tr><th>S No.</th><th>Feature Name</th><th>Feature Description</th></tr>
-<tr><td>0</td><td>trail ID</td><td>trail ID</td></tr>
 <tr><td>1</td><td>treatment_group_key</td><td>Experiment group label</td></tr>
 <tr><td>2</td><td>conversion</td><td>Outcome variable</td></tr>
 <tr><td>3</td><td>x1_informative</td><td>informative feature</td></tr>
@@ -47,10 +46,6 @@ Synthetic Data Set for Uplift Modeling [Data set]. Zenodo. https://doi.org/10.52
 <tr><td>30</td><td>x28_irrelevant</td><td>irrelevant feature</td></tr>
 <tr><td>31</td><td>x29_irrelevant</td><td>irrelevant feature</td></tr>
 <tr><td>32</td><td>x30_irrelevant</td><td>irrelevant feature</td></tr>
-
-<tr><td>33</td><td>control_conversion_prob</td><td>control conversion probability</td></tr>
-<tr><td>34</td><td>treatment1_conversion_prob</td><td>treatment 1 conversion probability</td></tr>
-<tr><td>35</td><td>treatment1_true_effect</td><td>treatment 1 true effect</td></tr>
 
 </table>
 
