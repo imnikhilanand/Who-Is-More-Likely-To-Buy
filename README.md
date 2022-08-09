@@ -100,10 +100,9 @@ A single model (S-Learner) was developed to predict the binary outcome (conversi
 <tr><td>gamma</td><td>1</td></tr>
 </table>
 
-<br>
-
 **Model Performance**
-<img src='src/S_learner_xgb_auc_plot.png' width='80%'>
+
+<img src='src/S_learner_xgb_auc_plot.png' width='70%'>
 
 
 
