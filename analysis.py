@@ -9,13 +9,16 @@ Created on Sun Aug  7 02:17:11 2022
 
 # importing the libraries
 import pandas as pd
-import statsmodels
+from statsmodels.stats.proportion import proportions_ztest
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import precision_recall_fscore_support
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_curve, auc
 sns.dark_palette("#69d", reverse=True, as_cmap=True)
 sns.color_palette("Set2")
 
@@ -42,7 +45,7 @@ data.groupby('treatment_group_key').aggregate({'conversion':['mean']})
 
 # plotting the distribution between two 
 temp_distribution = data.groupby('treatment_group_key').aggregate({'conversion':'mean'}).reset_index()
-sns.barplot(x = "treatment_group_key", y="conversion" ,data=temp_distribution, orient='h', palette='Blues')
+sns.barplot(x = "treatment_group_key", y="conversion" ,data=temp_distribution, palette='Blues')
 
 # difference in treatment and control groups 
 data.groupby('treatment_group_key').aggregate({'conversion':'mean'})['conversion'][1] - data.groupby('treatment_group_key').aggregate({'conversion':'mean'})['conversion'][0]
@@ -52,10 +55,10 @@ control = data.query('treatment_group_key == 0 and conversion == 1')['conversion
 treatment = data.query('treatment_group_key == 1 and conversion == 1')['conversion'].count()
 
 # proportion z-test of the two groups
-statsmodels.stats.proportion.proportions_ztest([control, treatment], [5000, 5000])
+proportions_ztest([control, treatment], [5000, 5000])
 
 
-""" Modeling """
+""" Preparing the data for Modeling """
 
 # seleccting features that are required to build the model 
 data = data[['treatment_group_key', 
@@ -142,13 +145,60 @@ y = data['conversion']
 # splitting the dataset into training and test set
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42 )
 
+
+
+""" First Model S-Learner """
+    
 # building the model
 model = XGBClassifier()
 
-# fitting the model using K-Fold cross validation
-score  = cross_val_score(model, X_train, y_train, cv=5, scoring='accuracy')
+# setting the parameters
+parameters = {'eta':[0.01, 0.1, 1],
+              'max_depth':[1, 5, 9],
+              'alpha':[0.1, 1],
+              'lambda':[0.01, 0.1],
+              'gamma':[1, 10]
+              }
 
-print(score)
+# grid search cv to find the best hyperparameters
+clf = GridSearchCV(model, parameters)
+
+# training the grid search model
+clf.fit(X_train, y_train)    
+
+# best parameters
+clf.best_params_
+
+# building the optimal model
+model_xgb = XGBClassifier(eta=0.1,
+                          max_depth=5,
+                          alpha=1,
+                          gamma=1)
+
+# fitting the model using K-Fold cross validation
+score  = cross_val_score(model_xgb, X_train, y_train, cv=5, scoring='accuracy')
+
+# modeling again
+model_xgb.fit(X_train, y_train)
+
+# testing the dataset
+y_pred = model_xgb.predict(X_test)
+
+y_pred_prob = model_xgb.predict_proba(X_test)[::,1]
+
+print(roc_auc_score(y_test,y_pred))
+
+# plotting the AUC-ROC curve
+fpr, tpr, _ = roc_curve(y_test,  y_pred_prob)
+auc = roc_auc_score(y_test, y_pred_prob)
+
+#create ROC curve
+plt.plot(fpr,tpr,label="AUC="+str(auc))
+plt.ylabel('True Positive Rate')
+plt.xlabel('False Positive Rate')
+plt.legend(loc=4)
+plt.show()
+
 
 
 
