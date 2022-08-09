@@ -66,7 +66,6 @@ Percentage of conversions in the two groups (Control and Treatment)
 <tr><td>Control</td><td>0.2670</td></tr>
 <tr><td>Treatment</td><td>0.3712</td></tr>
 </table>
-
 <img src='src/conversion_graph_2.png' width='50%'>
 
 Let's obeserve the proportion Z-test results among the two groups.
@@ -101,9 +100,10 @@ A single model (S-Learner) was developed to predict the binary outcome (conversi
 <tr><td>gamma</td><td>1</td></tr>
 </table>
 
-**Model Performance**
+<br>
 
-<img src='src/S_learner_xgb_auc_plot.png' width='50%'>
+**Model Performance**
+<img src='src/S_learner_xgb_auc_plot.png' width='80%'>
 
 
 
