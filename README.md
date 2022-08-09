@@ -67,6 +67,8 @@ Percentage of conversions in the two groups (Control and Treatment)
 <tr><td>Treatment</td><td>0.3712</td></tr>
 </table>
 
+<img src='src/conversion_graph.png' width='30%'>
+
 Let's obeserve the proportion Z-test results among the two groups.
  
 <table>
