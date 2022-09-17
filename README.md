@@ -2,6 +2,9 @@
 Uplift Modeling to identify the pursuable group of customers from all the users in order to send them encouragement (in terms of coupons or other offers) to buy the product more without spending resources to convert those users who are not willing or interested to buy the product even after encouragement.
 
 ## Uplift Modeling
+
+### Introduction
+
 A modeling technique that aims to find the subset of customers that would be most influenced by the action and create business value. Identifying these segments of user can substantially improve the returns on the inverstments made.
 
 Let's take an example where a company wants to send marketing emails to their users. We would expect that the users whom we are sending the emails will buy more or increase conversion rate. Although this could be true for the entire population. But if we try to dig deeper in the user behaviour, we will find out that there is a segment of user who are sleeping dogs i.e. who does not get affected by the marketing emails or any kind of emailers. There could be another type of users who will definitely buy the product (or convert). They are called Sure things. There could be another segment of users who won't buy a product after receive the emails. They are called Lost Causes. And at last, there are users who will make a purchage (or conversion) on receiving the emails. They are called Pursuables. 
@@ -18,7 +21,15 @@ However, there may be certain set of users who are actually making a purchase an
 
 The process of determining the variable treatment effect from person to person, conditional on the different traits these people have, we are looking for indivisual treatment effect (ITE), also called the conditional average treatment effect (CATE). This is where Machine Learning and predictive power is used.
 
+### Technique
 
+A classical technique to find Indivisual Treatment Effect is to find the indivisual likelihood, what if they were treated and not treated. These two probabilites are then subtracted to obtain the uplift: how much more likely is a purchase if the treatment is given? 
+
+The modeling can be accomplished in two ways:
+
+- One method is to create two instances of each data point, one with treatment = 1 and treatment = 0. This is called the 'S-Learner', approach since it is a Single model
+
+- Other method is to create two separate models. In the inference phase, treatment and control models are both used to obtain predictions for each instance. This approach is called 'T-Learner' approach since it uses two models. 
 
 ## Dataset Description
 
