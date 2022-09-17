@@ -10,6 +10,15 @@ Let's take an example where a company wants to send marketing emails to their us
     <img align=""src='img/types_of_users.JPG' width='65%'>
 </p>
 
+The goal of uplift modeling is to identify these groups. We have to find persuables and make efforts for their purchase (or conversion). We should not waste our resources on Sleeping dogs and Sure Things. We would never want to bother Lost Cause.
+
+Now since we haved to find if our promotional campaign is working or not, we can think of the problem as controlled randomized experiment where we are treating (or sending promotions) to a certain group of users i.e. the treatment group and not performing any action or treatment on another set of users i.e. control group. If we observe the the average purchase is higher in the treatment group than the control group, that means the promotion is encouraging users to purchase more. This is called Average Treatment Effect a.k.a ATE.
+
+However, there may be certain set of users who are actually making a purchase and they are causing the overall increase in the treatment group. If through someway we are able to identify if those purusable customers ahead of time, then we woluld be able to conventrate out resources on them. 
+
+The process of determining the variable treatment effect from person to person, conditional on the different traits these people have, we are looking for indivisual treatment effect (ITE), also called the conditional average treatment effect (CATE). This is where Machine Learning and predictive power is used.
+
+
 
 ## Dataset Description
 
