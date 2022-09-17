@@ -7,7 +7,7 @@ A modeling technique that aims to find the subset of customers that would be mos
 Let's take an example where a company wants to send marketing emails to their users. We would expect that the users whom we are sending the emails will buy more or increase conversion rate. Although this could be true for the entire population. But if we try to dig deeper in the user behaviour, we will find out that there is a segment of user who are sleeping dogs i.e. who does not get affected by the marketing emails or any kind of emailers. There could be another type of users who will definitely buy the product (or convert). They are called Sure things. There could be another segment of users who won't buy a product after receive the emails. They are called Lost Causes. And at last, there are users who will make a purchage (or conversion) on receiving the emails. They are called Pursuables. 
 
 <p align="centre">
-    <img src='img/types_of_users.JPG' width='80%'>
+    <img src='img/types_of_users.JPG' width='65%'>
 </p>
 
 
