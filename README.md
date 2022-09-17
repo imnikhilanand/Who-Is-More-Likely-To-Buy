@@ -44,13 +44,13 @@ Synthetic Data Set for Uplift Modeling [Data set]. Zenodo. https://doi.org/10.52
 <tr><td>2</td><td>conversion</td><td>Outcome variable</td></tr>
 <tr><td>3</td><td>x1_informative</td><td>informative feature</td></tr>
 <tr><td>4</td><td>x2_informative</td><td>informative feature</td></tr>
-<tr><td>:</td><td>:</td><td>informative feature</td></tr>
+<tr><td>:</td><td>:</td><td>:</td></tr>
 <tr><td>11</td><td>x9_informative</td><td>informative feature</td></tr>
 <tr><td>12</td><td>x10_informative</td><td>informative feature</td></tr>
 
 <tr><td>13</td><td>x11_irrelevant</td><td>irrelevant feature</td></tr>
 <tr><td>14</td><td>x12_irrelevant</td><td>irrelevant feature</td></tr>
-<tr><td>:</td><td>:</td><td>irrelevant feature</td></tr>
+<tr><td>:</td><td>:</td><td>:</td></tr>
 <tr><td>31</td><td>x29_irrelevant</td><td>irrelevant feature</td></tr>
 <tr><td>32</td><td>x30_irrelevant</td><td>irrelevant feature</td></tr>
 
