@@ -2,6 +2,12 @@
 Uplift Modeling to identify the pursuable group of customers from all the users in order to send them encouragement (in terms of coupons or other offers) to buy the product more without spending resources to convert those users who are not willing or interested to buy the product even after encouragement.
 
 ## Uplift Modeling
+A modeling technique that aims to find the subset of customers that would be most influenced by the action and create business value. Identifying these segments of user can substantially improve the returns on the inverstments made.
+
+Let's take an example where a company wants to send marketing emails to their users. We would expect that the users whom we are sending the emails will buy more or increase conversion rate. Although this could be true for the entire population. But if we try to dig deeper in the user behaviour, we will find out that there is a segment of user who are sleeping dogs i.e. who does not get affected by the marketing emails or any kind of emailers. There could be another type of users who will definitely buy the product (or convert). They are called Sure things. There could be another segment of users who won't buy a product after receive the emails. They are called Lost Causes. And at last, there are users who will make a purchage (or conversion) on receiving the emails. They are called Pursuables. 
+
+<img src='img/types_of_users.JPG' width='50%'>
+
 
 
 ## Dataset Description
@@ -66,7 +72,7 @@ Percentage of conversions in the two groups (Control and Treatment)
 <tr><td>Control</td><td>0.2670</td></tr>
 <tr><td>Treatment</td><td>0.3712</td></tr>
 </table>
-<img src='src/conversion_graph_2.png' width='50%'>
+<img src='img/conversion_graph_2.png' width='50%'>
 
 Let's obeserve the proportion Z-test results among the two groups.
  
@@ -102,7 +108,7 @@ A single model (S-Learner) was developed to predict the binary outcome (conversi
 
 **Model Performance**
 
-<img src='src/S_learner_xgb_auc_plot.png' width='70%'>
+<img src='img/S_learner_xgb_auc_plot.png' width='70%'>
 
 
 
