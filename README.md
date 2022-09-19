@@ -113,7 +113,7 @@ A single model (S-Learner) was developed to predict the binary outcome (conversi
 <img src='img/S_learner_xgb_auc_plot.png' width='70%'>
 
 
-** Model Evaluation **
+**Model Evaluation**
 
 Now we have our uplift model, we have to test the dataset with treatment variable 0 and 1 for all the test samples. Then we have to calculate the difference for each of the data points.
 
