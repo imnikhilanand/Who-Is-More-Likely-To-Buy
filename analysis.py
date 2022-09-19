@@ -200,7 +200,42 @@ plt.legend(loc=4)
 plt.show()
 
 
-""" Second Model T-Learner """
+""" Model Evaluation """
+
+# test data with treatment group key 0 for predictions
+X_test_0 = X_test.copy()
+X_test_0['treatment_group_key'] = 0
+
+# test data with treatment group key 1 for predictions
+X_test_1 = X_test.copy()
+X_test_1['treatment_group_key'] = 1
+
+
+# calculating uplift 
+uplift = model_xgb.predict_proba(X_test_1)[:,1] - model_xgb.predict_proba(X_test_0)[:,1]
+
+# plotting the distribution of uplift
+sns.distplot(uplift, hist=True, kde=False, bins=int(80/5))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

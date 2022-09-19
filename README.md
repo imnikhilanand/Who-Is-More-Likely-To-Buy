@@ -93,7 +93,7 @@ These observations clearly states that we can move ahead with the uplift modelin
  
 ## Modeling
 
-### S-Learner XGBoost
+### S-Learner
 
 A single model (S-Learner) was developed to predict the binary outcome (conversion). For this model XGBooost was used which resulted in an AUC score of 0.7554.
 
