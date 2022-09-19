@@ -107,13 +107,19 @@ A single model (S-Learner) was developed to predict the binary outcome (conversi
 <tr><td>gamma</td><td>1</td></tr>
 </table>
 
+
 **Model Performance**
 
 <img src='img/S_learner_xgb_auc_plot.png' width='70%'>
 
 
+** Model Evaluation **
 
+Now we have our uplift model, we have to test the dataset with treatment variable 0 and 1 for all the test samples. Then we have to calculate the difference for each of the data points.
 
+To visualize the uplift score, let's plot the density function.
+
+<img src='img/uplift_density_distribution.png' width='70%'>
 
 
 
