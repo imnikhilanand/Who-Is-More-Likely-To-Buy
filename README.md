@@ -122,6 +122,11 @@ To visualize the uplift score, let's plot the density function.
 <img src='img/uplift_density_distribution.png' width='70%'>
 
 
+**Observations:**
+
+- The density function of the uplift score says that the overall uplift is positive as the curve is skewed toward the right after 0.
+- There is negative uplift too, that means there are Lost cause too in the dataset. 
+- There is a major peak at 0, that means there is significant number of sleeping dogs too.
 
 
 
