@@ -144,6 +144,10 @@ Now let's visualize the bins itself and the average uplift in these bins.
 <img src='img/quantile_plot_2.png' width='100%'>
 
 
+**Observations:**
+
+- The increase in the true uplift increases with the quantile range as expected.
+- The average treatment effect was ~10%. But if we observe the uplift binwise we can see that it can go upto ~39% for certain set of users. 
 
 
 
