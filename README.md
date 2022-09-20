@@ -129,8 +129,19 @@ To visualize the uplift score, let's plot the density function.
 - There is a major peak at 0, that means there is significant number of sleeping dogs too.
 
 
+## Analysis
 
+For Uplift modeling, we cannot just rely on the AUC curve or accuracy score for the classifier. We use quantile plots for these. Quantile plots are one of the easiest way to find out of the model is working perfectly or not. 
 
+The idea is to create bins of data points based on the uplift score. Under each bin, we check if there is significant uplift or not. If the model works well, then we will observe lasrge positive difference in higher deciles. As the uplift comes down, the different will become smaller. In other words, as the uplift score increase, the true uplift of control and treatment gorups will also increase.
+
+Let's visualize the number of data points for control and treatment under each of the quantiles.
+
+<img src='img/quantile_plot_1.png' width='70%'>
+
+Now let's visualize the bins itself and the average uplift in these bins.
+
+<img src='img/quantile_plot_2.png' width='70%'>
 
 
 

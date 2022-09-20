@@ -146,7 +146,6 @@ y = data['conversion']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42 )
 
 
-
 """ First Model S-Learner """
     
 # building the model
@@ -218,14 +217,51 @@ uplift = model_xgb.predict_proba(X_test_1)[:,1] - model_xgb.predict_proba(X_test
 sns.distplot(uplift, hist=True, kde=False, bins=int(80/5))
 
 
+""" Quantile metrics """
+
+# copying the dataset
+X_w_score = X_test.copy()
+
+# adding the uplift score in the dataset
+X_w_score['uplift_score'] = uplift
+
+# check the distribution in the two groups
+len(X_w_score.query('treatment_group_key == 1'))
+len(X_w_score.query('treatment_group_key == 0'))
 
 
+# Building the quantile chart 
+score_quantiles, score_quantiles_bins = pd.qcut(x=X_w_score['uplift_score'], 
+                                                q=10,
+                                                retbins=True,
+                                                duplicates='drop')
+
+X_w_score['quantile_bin'] = score_quantiles
+
+count_by_quantile_and_treatment = X_w_score.groupby(['quantile_bin','treatment_group_key']).aggregate({'treatment_group_key':'count'})
+
+count_by_quantile_and_treatment = count_by_quantile_and_treatment.unstack(-1)
+
+# plotting the bar chart
+count_by_quantile_and_treatment.plot.barh()
+plt.xlabel('Number of Obeservations')
+
+# uplift quantile chart
+validation_treatment_mask = X_w_score['treatment_group_key'] == 1
 
 
+# adding conversion to the test dataset
+X_w_score['conversion'] = y_test
 
+treatment_by_quantile = X_w_score[validation_treatment_mask].groupby('quantile_bin')['conversion'].mean()
 
+control_by_quantile = X_w_score[~validation_treatment_mask].groupby('quantile_bin')['conversion'].mean()
 
+true_uplift_by_quantile = treatment_by_quantile - control_by_quantile
 
+# plotting the uplift
+true_uplift_by_quantile.plot.barh()
+plt.xlabel('True uplift')
 
 
 
