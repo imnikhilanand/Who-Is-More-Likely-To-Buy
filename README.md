@@ -137,11 +137,11 @@ The idea is to create bins of data points based on the uplift score. Under each 
 
 Let's visualize the number of data points for control and treatment under each of the quantiles.
 
-<img src='img/quantile_plot_1.png' width='70%'>
+<img src='img/quantile_plot_1.png' width='100%'>
 
 Now let's visualize the bins itself and the average uplift in these bins.
 
-<img src='img/quantile_plot_2.png' width='70%'>
+<img src='img/quantile_plot_2.png' width='100%'>
 
 
 
